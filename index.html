@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nahuel A. Espinoza — Software Developer · Ethical Hacker · AI Specialist</title>
+  <meta name="description" content="Nahuel A. Espinoza — Software developer, ethical hacker y especialista en IA. Portafolio profesional minimalista." />
+  <!-- Open Graph básico -->
+  <meta property="og:title" content="Nahuel A. Espinoza — Portafolio" />
+  <meta property="og:description" content="Software Developer · Ethical Hacker · AI Specialist · CEO & Co-founder @AInsophic" />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon simple (puedes reemplazarlo por /public/favicon.ico) -->
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+
+  <!-- Paleta y estilos (mobile-first). Comentarios en español explicando secciones principales. -->
+  <style>
+    /* ---------------------------------------------
+       VARIABLES DE COLOR — paleta sugerida
+       Azul oscuro: #0B3D91
+       Azul medio:  #1E6FFF
+       Turquesa:    #1FC3C9
+       Celeste:     #BEE7FF
+       Blanco:      #FFFFFF
+       Negro texto: #0F1724
+       --------------------------------------------- */
+    :root{
+      --bg:#ffffff;
+      --text:#0F1724;
+      --accent-1:#0B3D91;
+      --accent-2:#1E6FFF;
+      --accent-3:#1FC3C9;
+      --muted:#6B7280;
+      --radius:12px;
+      --section-gap:2.4rem;
+      --max-width:1000px;
+      --glass: rgba(255,255,255,0.6);
+    }
+
+    /* Reseteo ligero */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background:linear-gradient(180deg, var(--bg) 0%, #F7FBFF 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding:1.2rem;
+      display:flex;
+      justify-content:center;
+    }
+
+    /* Contenedor centrado y responsive */
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      background:transparent;
+      padding:1rem;
+    }
+
+    /* Header / Hero */
+    header{
+      display:flex;
+      gap:1rem;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:1rem;
+    }
+    .brand{
+      display:flex;
+      flex-direction:column;
+    }
+    .name{
+      font-size:1.2rem;
+      font-weight:700;
+      letter-spacing:0.2px;
+    }
+    .sub{
+      font-size:0.86rem;
+      color:var(--muted);
+    }
+
+    /* CTA group */
+    .ctas{display:flex;gap:0.6rem;align-items:center}
+    .btn{
+      border:0;
+      padding:0.55rem 0.9rem;
+      font-weight:600;
+      border-radius:10px;
+      cursor:pointer;
+      transition:transform .18s ease, box-shadow .18s ease;
+      background:linear-gradient(90deg,var(--accent-2),var(--accent-3));
+      color:white;
+      box-shadow:0 6px 18px rgba(30,111,255,0.12);
+    }
+    .btn.secondary{
+      background:transparent;
+      color:var(--accent-1);
+      border:1px solid rgba(11,61,145,0.12);
+      box-shadow:none;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn:focus{outline:3px solid rgba(30,111,255,0.12)}
+
+    /* Layout principal */
+    main{display:grid;grid-template-columns:1fr;gap:var(--section-gap)}
+
+    .hero{
+      display:block;
+      padding:1.2rem;
+      border-radius:14px;
+      background:linear-gradient(180deg, rgba(11,61,145,0.03), rgba(31,195,201,0.02));
+      box-shadow:0 4px 20px rgba(15,23,36,0.03);
+    }
+    .hero h1{font-size:1.85rem;margin:0 0 .2rem}
+    .hero p.lead{margin:0 0 .8rem;color:var(--muted)}
+
+    .contactline{
+      font-size:0.88rem;
+      color:var(--muted);
+      display:flex;flex-wrap:wrap;gap:.5rem;align-items:center
+    }
+    .contactline a{color:var(--accent-1);text-decoration:none}
+
+    /* Secciones internas */
+    section.card{
+      background:white;
+      border-radius:14px;
+      padding:1rem;
+      box-shadow:0 6px 18px rgba(11,61,145,0.04);
+    }
+
+    /* Grid para experiencia / skills */
+    .grid-2{display:grid;grid-template-columns:1fr;gap:1rem}
+
+    .job{margin-bottom:.8rem}
+    .job h4{margin:.1rem 0 .2rem}
+    .job .meta{font-size:0.85rem;color:var(--muted)}
+
+    /* Listas y tags */
+    .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem}
+    .tag{padding:.3rem .5rem;border-radius:999px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;font-size:.78rem}
+
+    /* Certificados - link a carpeta */
+    .cert-list{display:flex;flex-direction:row;gap:.6rem;overflow:auto;padding-top:.6rem}
+    .cert-item{min-width:160px;background:linear-gradient(180deg, rgba(30,111,255,0.06), rgba(31,195,201,0.04));padding:.6rem;border-radius:10px}
+    .cert-item small{display:block;color:var(--muted);font-size:.82rem}
+
+    /* Footer */
+    footer{margin-top:1.2rem;font-size:0.85rem;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
+
+    /* Responsive: tablet+, ajustamos hero y grid */
+    @media(min-width:720px){
+      .brand{flex-direction:row;gap:1rem;align-items:center}
+      main{grid-template-columns:1fr 360px;gap:1.2rem}
+      .grid-2{grid-template-columns:1fr 1fr}
+      .hero h1{font-size:2.2rem}
+    }
+
+    @media(min-width:1100px){
+      body{padding:2.4rem}
+      .container{padding:1.2rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="top">
+    <!-- HEADER / NAV simple -->
+    <header>
+      <div class="brand" aria-label="Identidad">
+        <div style="display:flex;flex-direction:column">
+          <div class="name">Nahuel A. Espinoza</div>
+          <div class="sub">Software Developer · Ethical Hacker · AI Specialist · CEO &amp; Co-founder @AInsophic</div>
+        </div>
+      </div>
+
+      <div class="ctas" role="navigation" aria-label="Acciones rápidas">
+        <!-- Descargar CV: por defecto apunta a /certificados/CV_Nahuel_Espinoza.pdf. Reemplaza este archivo en la carpeta 'certificados' -->
+        <a class="btn" href="/certificados/CV_Nahuel_Espinoza.pdf" download aria-label="Descargar CV">Descargar CV</a>
+        <a class="btn secondary" href="#contacto" aria-label="Contactar">Contactar</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- COLUMNA PRINCIPAL: Hero + Resumen + Experiencia -->
+      <div>
+        <!-- HERO -->
+        <section class="hero" aria-labelledby="hero-title">
+          <h1 id="hero-title">Nahuel A. Espinoza</h1>
+          <p class="lead">Software Developer · Ethical Hacker · AI Specialist · CEO &amp; Co-founder @AInsophic</p>
+
+          <p class="contactline">
+            <!-- Línea de contacto compacta -->
+            Miguel Cané 531 • Maipú, Mendoza, Argentina •
+            <a href="mailto:nahuelespinoza.ar@gmail.com">nahuelespinoza.ar@gmail.com</a>
+            • <a href="tel:+542612591675">+54 261 259-1675</a>
+            • <a href="https://github.com/espinozan" target="_blank" rel="noopener">GitHub</a>
+            • <a href="https://nahuelespinoza.dev.ar" target="_blank" rel="noopener">Portfolio</a>
+            • <a href="https://linkedin.com/in/nahuelespinoza" target="_blank" rel="noopener">LinkedIn</a>
+          </p>
+
+          <!-- Pequeña introducción -->
+          <p style="margin-top:0.9rem">Candidato a la Tecnicatura en Desarrollo de Software con sólida experiencia práctica en desarrollo web, ciberseguridad e IA aplicada. Pionero en introducir y automatizar soluciones de IA en la Municipalidad de Maipú, diseñando herramientas que optimizaron procesos internos y aumentaron la eficiencia operativa.</p>
+        </section>
+
+        <!-- RESUMEN PROFESIONAL (card) -->
+        <section class="card" aria-labelledby="resumen-title" style="margin-top:var(--section-gap)">
+          <h3 id="resumen-title">Resumen profesional</h3>
+          <p>Busco formalizar mi formación en el IES N° 9023 para potenciar mis aportes técnicos y sociales. Poseo experiencia en full-stack (Python, JavaScript), ML/IA, despliegue (Docker, Cloud) y prácticas de seguridad/pentesting. He gestionado alianzas estratégicas y liderado equipos técnicos para construir MVPs y agentes conversacionales.</p>
+
+          <!-- TAGS con skills principales -->
+          <div class="tags" aria-hidden="false">
+            <span class="tag">Python</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Django / Flask</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Pentesting</span>
+            <span class="tag">IA / ML</span>
+          </div>
+        </section>
+
+        <!-- EXPERIENCIA -->
+        <section class="card" aria-labelledby="exp-title" style="margin-top:var(--section-gap)">
+          <h3 id="exp-title">Experiencia relevante</h3>
+
+          <div class="job">
+            <h4>AInsophic — CEO &amp; Co-Founder</h4>
+            <div class="meta">Mar 2023 – Presente</div>
+            <p>Lideré la estrategia técnica y de producto; diseño y entrega de MVPs de IA y agentes conversacionales. Gestioné alianzas institucionales con Polo TIC, universidades y comunidades técnicas.</p>
+          </div>
+
+          <div class="job">
+            <h4>Municipalidad de Maipú — Responsable de Seguridad Informática / Soporte Técnico</h4>
+            <div class="meta">Jul 2020 – Presente</div>
+            <p>Implementé pipelines y automatizaciones con IA para procesos internos, ejecuté auditorías de seguridad y planes de hardening en infraestructura local.</p>
+          </div>
+
+          <div class="job">
+            <h4>FOXYGHOTZ3 — Pentester (Práctica)</h4>
+            <div class="meta">May 2020 – Jul 2020</div>
+            <p>Análisis de vulnerabilidades, pruebas de intrusión y elaboración de planes de remediación.</p>
+          </div>
+
+          <div class="job">
+            <h4>WEBTECH / Drunken — Desarrollador Web Jr.</h4>
+            <div class="meta">2019</div>
+            <p>Desarrollo front/back, optimización de rendimiento y mejoras de UX.</p>
+          </div>
+        </section>
+
+        <!-- EDUCACIÓN y CERTIFICACIONES (breve) -->
+        <section class="card" aria-labelledby="edu-title" style="margin-top:var(--section-gap)">
+          <h3 id="edu-title">Educación</h3>
+          <p><strong>IES N° 9023</strong> — Tecnicatura en Desarrollo de Software (Inscripción realizada — Inicio previsto: 2026)</p>
+
+          <p><strong>Escuela 3-448 “P. M. A. Pérez”</strong> — Bachiller en Administración de Empresas (Incompleta / Reinscripto)</p>
+
+          <h4 style="margin-top:.8rem">Certificaciones (selección)</h4>
+          <ul>
+            <li>Code in Place — Stanford University — Certificate of Completion</li>
+            <li>Escuela de Informática del Ejército Argentino — Fundamentos de IA (en curso)</li>
+            <li>Fundación Telefónica — Gobierno y Gestión de la Seguridad de la Información</li>
+            <li>Udemy — Hacking Ético / Red Team</li>
+          </ul>
+
+          <!-- Link a carpeta de certificados. Instrucciones en comentarios: -->
+          <!-- Nota: crea una carpeta llamada "certificados" en el mismo nivel que este index.html y sube ahí los PDFs. -->
+          <div style="margin-top:.6rem">
+            <a href="/certificados/" class="btn secondary" aria-label="Ver certificados">Ver certificados (carpeta)</a>
+            <small style="display:block;margin-top:.4rem;color:var(--muted)">Lista completa (18 diplomas): <a href="https://tinyurl.com/nahuelespinoza-certifications" target="_blank" rel="noopener">tinyurl.com/nahuelespinoza-certifications</a></small>
+          </div>
+        </section>
+
+        <!-- VERSIÓN CORTA -->
+        <section class="card" aria-labelledby="short-title" style="margin-top:var(--section-gap)">
+          <h3 id="short-title">Versión corta</h3>
+          <p>Candidato a la Tecnicatura en Desarrollo de Software. Desarrollador full-stack (Python, JS) y especialista en IA y seguridad. Pionero en implementar automatizaciones con IA en la Municipalidad de Maipú. CEO &amp; Co-founder @AInsophic.</p>
+        </section>
+      </div>
+
+      <!-- COLUMNA LATERAL: Contacto, habilidades, idiomas -->
+      <aside>
+        <section class="card" aria-labelledby="contacto" id="contacto">
+          <h3 id="contacto-title">Contacto</h3>
+          <p><strong>Email:</strong> <a href="mailto:nahuelespinoza.ar@gmail.com">nahuelespinoza.ar@gmail.com</a></p>
+          <p><strong>Teléfono:</strong> <a href="tel:+542612591675">+54 261 259-1675</a></p>
+          <p><strong>Ubicación:</strong> Maipú, Mendoza, Argentina</p>
+
+          <div style="margin-top:.6rem;display:flex;flex-direction:column;gap:.4rem">
+            <a class="btn" href="https://github.com/espinozan" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn secondary" href="https://nahuelespinoza.dev.ar" target="_blank" rel="noopener">Portfolio</a>
+            <a class="btn secondary" href="https://linkedin.com/in/nahuelespinoza" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </section>
+
+        <section class="card" style="margin-top:var(--section-gap)" aria-labelledby="skills-title">
+          <h3 id="skills-title">Habilidades técnicas</h3>
+          <ul>
+            <li>Lenguajes: Python, JavaScript, HTML, CSS, PHP, Bash, Batch</li>
+            <li>Frameworks / Tools: Django, Flask, Node.js, Docker, Git, MySQL/Postgres</li>
+            <li>Seguridad: Kali Linux, nmap, Burp Suite, OWASP</li>
+            <li>IA/ML: prototipado en Python, despliegue de modelos</li>
+            <li>Sistemas: Linux, Windows — administración de servidores</li>
+          </ul>
+        </section>
+
+        <section class="card" style="margin-top:var(--section-gap)" aria-labelledby="langs-title">
+          <h3 id="langs-title">Idiomas</h3>
+          <p>Español (nativo) • Inglés (intermedio — en curso)</p>
+        </section>
+
+        <section class="card" style="margin-top:var(--section-gap)" aria-labelledby="avail-title">
+          <h3 id="avail-title">Disponibilidad</h3>
+          <p>Trabajo remoto / presencial (Mendoza). Documentación y certificados disponibles a solicitud.</p>
+        </section>
+      </aside>
+    </main>
+
+    <footer>
+      <div>© Nahuel A. Espinoza — Portafolio personal</div>
+      <div style="color:var(--muted)">Última actualización: 2025</div>
+    </footer>
+
+    <!-- Pequeño script para mejoras UX (no depende de librerías). Comentarios explicativos en español. -->
+    <script>
+      /* Script mínimo: prevenir salto al hacer click en enlaces sin href, y mejorar accesibilidad de botones. */
+      document.addEventListener('click', (e)=>{
+        const t = e.target;
+        if(t.tagName === 'A' && t.getAttribute('href') === '#'){
+          e.preventDefault();
+        }
+      });
+
+      // Nota: para que el botón Descargar CV funcione, crea la carpeta /certificados/ y coloca un archivo llamado
+      // CV_Nahuel_Espinoza.pdf dentro. Si desplegás en un servidor (Netlify/Vercel), sube la carpeta en 'public'.
+
+      // Mejoras opcionales que puedes añadir: un pequeño modal para mostrar certificados en el navegador usando <dialog>
+    </script>
+
+  </div>
+</body>
+</html>
